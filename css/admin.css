@@ -1,0 +1,310 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', Arial, 'Noto Sans TC','Microsoft JhengHei', sans-serif;
+}
+a,a:hover{
+  text-decoration: none;
+}
+
+.btn{
+  width: 80px;
+  color: #fff;
+  background-color: #48c496;
+  border: 1px solid #48c496;
+  height: 40px;
+  font-weight: normal;
+  font-size: 1rem;
+  transition-duration: 0.5s;
+}
+.btn:hover{
+  color: #48c496;
+  background-color: #fff;
+}
+
+input,select{
+  padding: 0 3px;
+  height: 40px;
+}
+textarea{
+  padding: 5px;
+}
+
+
+
+
+
+
+
+.adminContainer{
+  display: flex;
+}
+.adminContainer>div{
+  min-height: 100vh;
+  
+  /* border: 1px solid #000; */
+}
+
+
+
+
+
+/* -------- 左側欄 -------- */
+.sideBar{
+  position: relative;
+  width: 250px;
+  background-color: #48c496;
+  /* background: linear-gradient(to top, #84fab0 0%, #48c496 100%); */
+  padding: 20px 0;
+  z-index: 10;
+}
+.sideBar::before{
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 0 20px 20px;
+  border-color: transparent transparent transparent #48c496;
+}
+.sideBar .sideTitle{
+  display: block;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.85rem;
+}
+.navList li{
+  /* margin-bottom: 10px; */
+  list-style: none;
+}
+.navList li a{
+  display: block;
+  color: #fff;
+  padding: 20px 15px;
+  border-top: 1px solid #fff;
+}
+.navList li:last-child a{
+  border-bottom: 1px solid #fff;
+}
+.navList li a::before{
+  content: '✦';
+  margin-right: 5px;
+}
+.navList li a:hover{
+  color: #48c496;
+  background-color: #fff;
+}
+
+
+
+/* -------- 右區塊 -------- */
+.rightBox{
+  width: calc(100% - 250px);
+  overflow:visible;
+}
+
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.home img{
+  height: 50%;
+}
+
+.topbar{
+  height: 60px;
+  line-height: 60px;
+  padding: 0 30px;
+  border-bottom: 1px solid #5d6fa025;
+  font-size: 1.5rem;
+  /* box-shadow: 0 5px 10px #5d6fa025; */
+}
+.page{
+  max-height: calc(100vh - 60px);
+  padding: 20px;
+  /* border: 2px solid #ddd; */
+  overflow-y: auto;
+}
+.pageItem{
+  margin-bottom: 30px;
+}
+
+
+.page table tr th{
+  color: #fff;
+  background-color: #EF476F;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #EF476F;
+}
+.page table tr th.th_id,
+.page table tr th.th_show,
+.page table tr th.th_del,
+.page table tr td.td_order{
+  width: 80px;
+}
+.page table tr th.th_btn,
+.page table tr td.td_type{
+  width: 120px;
+}
+.page table tr td{
+  text-align: center;
+  /* border-top: 0px solid #ddd;
+  border-bottom: 1px solid #ddd; */
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+.page table tr .td_order input,
+.page table tr .td_type input{
+  min-width: 50px;
+  width: 50px;
+}
+.page table tr .td_img{
+  /* width: 40%; */
+  min-width: 200px;
+}
+.page table tr .td_img img{
+  width: 100%;
+  max-width: 350px;
+}
+.page table .btn{
+  width: 100px;
+}
+.page table input{
+  width: 100%;
+  min-width: 100px;
+}
+.page table input[type=radio],
+.page table input[type=checkbox]{
+  width: auto;
+  min-width: auto;
+  max-width: auto;
+}
+.page table select{
+  min-width: 100px;
+  width: 100%;
+}
+.page table textarea{
+  min-width: 200px;
+  width: 100%;
+}
+
+.btnGroup{
+  margin-top: 30px;
+  text-align: center;
+}
+.btnGroup>div{
+  display: inline-block;
+}
+.btnGroup .btnAdd{
+  float: left;
+  background-color: #118ab2;
+  border: 1px solid #118ab2;
+}
+.btnGroup .btnAdd:hover{
+  color: #118ab2;
+  background-color: #fff;
+}
+
+.btnGroup .btnReset{
+  background-color: #ccc;
+  border: 1px solid #ccc;
+}
+.btnGroup .btnReset:hover{
+  color: #ccc;
+  background-color: #fff;
+}
+
+
+/* -------- 提示視窗 -------- */
+.tipBox{
+  padding: 30px 0;
+  text-align: center;
+  /* display: none; */
+}
+.tipBox h5,
+.tipBox p{
+  color: #000;
+  margin-bottom: 15px;
+}
+.tipBox .btn{
+  background-color: #ffd166;
+  border: 1px solid #ffd166;
+}
+.tipBox .btn:hover{
+  color: #ffd166;
+  background-color: #fff;
+}
+
+
+/* -------- 彈跳視窗 -------- */
+.jumpBoxOverlay{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000080;
+  z-index: 1000;
+}
+
+.jumpBox{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px;
+  min-height: 100px;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 1001;
+}
+.jumpBox .btnClose{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #fff;
+  font-size: 2.5rem;
+} 
+.jumpBoxTop{
+  color: #fff;
+  background-color: #ffd166;
+  padding: 10px 0;
+  font-size: 1.25rem;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.jumpBoxContent{
+  padding: 15px;
+}
+.jumpBoxContent table tr td{
+  border-top: 0px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.jumpBoxContent table tr td:first-child{
+  width: 150px;
+  text-align: center;
+}
+.jumpBoxContent table input{
+  width: 100%;
+  height: 40px;
+}
+.jumpBoxContent table textarea{
+  width: 100%;
+}
+.jumpBoxContent .btnGroup{
+  margin-top: 10px;
+}
+
+
+/* 48c496-ef476f-ffd166-118ab2 */
