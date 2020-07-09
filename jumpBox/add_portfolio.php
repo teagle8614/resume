@@ -20,7 +20,11 @@
         <td><input type="text" name="link"></td>
       </tr>
       <tr>
-        <td>預覽圖片</td>
+        <td>作品類型</td>
+        <td><input type="text" name="type"></td>
+      </tr>
+      <tr>
+        <td>圖片</td>
         <td>
           <select name="imgId">
             <option value="0">請選擇</option>

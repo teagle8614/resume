@@ -9,7 +9,8 @@
           <th>項目</th>
           <th style="width:30%">內容</th>
           <th>連結</th>
-          <th>預覽圖片</th>
+          <th>作品類型</th>
+          <th>圖片</th>
           <th>排序</th>
           <th class="th_show">顯示</th>
           <th class="th_del">刪除</th>
@@ -33,6 +34,7 @@
             <td><input type="text" name="item[]" value="<?=$row['item'];?>"></td>
             <td><textarea style="width:100%;" name="content[]" rows="5"><?=$row['content'];?></textarea></td>
             <td><input type="text" name="link[]" value="<?=$row['link'];?>"></td>
+            <td><input type="text" name="type[]" value="<?=$row['type'];?>"></td>
             <td>
               <?php
                 echo "<select name='imgId[]'>";

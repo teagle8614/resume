@@ -2,7 +2,7 @@
 
 class DB{
    // 設定屬性
-   private $dsn="mysql:host:localhost;charset=utf8;dbname=s1090204";
+   private $dsn="mysql:host=localhost;charset=utf8;dbname=s1090204";
    private $root="s1090204";
    private $password="s1090204";
    private $table;

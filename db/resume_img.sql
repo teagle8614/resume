@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-07-08 18:37:26
+-- 產生時間： 2020-07-09 19:00:38
 -- 伺服器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.4.3
 
@@ -46,8 +46,10 @@ INSERT INTO `resume_img` (`id`, `name`, `img`) VALUES
 (5, '數位時鐘', 'DigitalClock.jpg'),
 (6, '類比時鐘', 'AnalogClock.jpg'),
 (7, '二選一小遊戲', 'storyGame.jpg'),
-(8, 'logo', 'logo.svg'),
-(9, '冰品DM', 'iceDM.jpg');
+(8, 'logo', 'logo2.png'),
+(9, '冰品DM', 'iceDM.jpg'),
+(10, '年曆', 'calendarPS.jpg'),
+(11, 'logo設計', 'logo_design.jpg');
 
 --
 -- 已傾印資料表的索引
@@ -67,7 +69,7 @@ ALTER TABLE `resume_img`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_img`
 --
 ALTER TABLE `resume_img`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '流水號', AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '流水號', AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

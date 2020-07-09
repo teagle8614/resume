@@ -36,7 +36,7 @@
       $data['sh']=0;
       $page="autobiography";
       break;
-    case 'resume_jobCondition':
+    case 'resume_jobcondition':
     // 求職條件管理
       $data['item']=$_POST['item'];
       $data['content']=$_POST['content'];
@@ -76,6 +76,7 @@
       $data['item']=$_POST['item'];
       $data['content']=$_POST['content'];
       $data['link']=$_POST['link'];
+      $data['type']=$_POST['type'];
       $data['imgId']=$_POST['imgId'];
       $data['sh']=1;
       $page="portfolio";

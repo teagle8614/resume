@@ -1,7 +1,7 @@
 <?php
   include_once "api/base.php";
 
-  $MyInfo=new DB("resume_myInfo");
+  $MyInfo=new DB("resume_myinfo");
   $myinfo=$MyInfo->find(1);
 
   $Img=new DB("resume_img");
@@ -13,7 +13,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>resume</title>
   <link rel="stylesheet" href="plugins/bootstrap.min.css">
-  <link rel="stylesheet" href="plugins/custom.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <!-- google font -->
@@ -28,7 +27,7 @@
 <body>
   <header class="navbar-dark fixed-top">
     <nav class="navbar navbar-expand-md container">
-      <a class="navbar-brand" href="#">MyResume</a>
+      <a class="navbar-brand" href="javascript:void(0);">Resume</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -113,9 +112,6 @@
       </div>
       <div class="col-lg-7">
         <div><?=nl2br($myinfo['info']);?></div>
-        <!-- <div class="myInfo">
-          <p>原先以為自己與程式設計無緣，但在大學第一次接觸到相關課程，讓我與程式有認識的契機。雖然初次面對時，確實因為無法理解而懊惱了許久，但是隨著接觸的越多，發現自己對於寫程式產生了興趣。在學校內所接觸到的程式並不算多，所以便自學較有興趣的HTML與CSS，也慢慢接觸到了一些JavaScript、jQuery與Bootstrap等等，也因為前一份工作的緣故，讓我想接觸看看偏向後端的程式技術，所以參加了職訓課程。現在的我除了前端程式外，對後端程式也有一定的了解，讓我不用非得依靠別人處理後端部分，可以用自己的手撰寫出一整個程式，讓我覺得很有成就感!目前在朝全端工程師的方向努力中。</p>
-        </div> -->
       </div> 
     </div> 
   </section>
@@ -127,7 +123,7 @@
     <table class="table wow fadeInUpBig">
       <tbody>
         <?php
-          $Job=new DB("resume_jobCondition");
+          $Job=new DB("resume_jobcondition");
           $jobs=$Job->all(["sh"=>1]," order by  `orderNum` desc");
 
           foreach($jobs as $job){
@@ -243,18 +239,28 @@
   <hr>
 
   <section id="portfolio" class="container">
+    <?php
+      $Port=new DB("resume_portfolio");
+      $ports=$Port->all(["sh"=>1]," order by `orderNum` desc");
+      
+      $typeKinds=$Port->q("SELECT DISTINCT `type` FROM `resume_portfolio`");
+    ?>
     <h3 class="title wow fadeInLeft">作品集<span></span></h3>
+    <div class="control_btn">
+      <a href="javascript:controlPost(0)">ALL</a>
+      <?php
+        foreach($typeKinds as $typeKind){
+          echo "<a href='javascript:controlPost(\"".$typeKind['type']."\")'>".$typeKind['type']."</a>";
+        }
+      ?>
+    </div>
     <div class="row">
       <?php
-        
-        $Port=new DB("resume_portfolio");
-        $ports=$Port->all(["sh"=>1]," order by  `orderNum` desc");
-
         foreach($ports as $port){
           // 利用id去找resume_img裡的圖片
           $imgLink=$Img->find($port['imgId']);
       ?>
-      <div class="col-12 col-lg-4 col-md-6 my-3 wow fadeInUpBig">
+      <div class="col-12 col-lg-4 col-md-6 my-3 wow fadeInUp" data-portfolio="<?=$port['type'];?>">
        <a href="<?=$port['link'];?>" target="_blank">
          <div class="box box1" style="background-image: url(img/<?=$imgLink['img'];?>);">
             <div class="innerBox">
@@ -277,7 +283,7 @@
   </div>
 
   <footer>
-    <p>© Copyright 2020. All Rights Reserved. Designed by 何思逸</p>
+    <p>© Copyright <span id="footerTime">2020-2022</span>. <br> All Rights Reserved. Designed by 何思逸</p>
   </footer>
 
 
@@ -288,5 +294,9 @@
   <!-- Wow.js -->
   <script src="plugins/wow/wow.min.js"></script>
   <script src="js/general.js"></script>
+
+  <script>
+    
+  </script>
 </body>
 </html>

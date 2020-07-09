@@ -1,6 +1,6 @@
 <!-- 求職條件管理 -->
 <div class="topbar">求職條件管理</div>
-<div class="page page_jobCondition">
+<div class="page page_jobcondition">
   <form method="post" action="api/edit.php">
     <table class="table">
       <thead>
@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <?php
-          $table="resume_jobCondition";
+          $table="resume_jobcondition";
           $db=new DB($table);
           $rows=$db->all();
           foreach($rows as $row){

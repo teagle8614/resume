@@ -78,6 +78,7 @@
   - item      項目
   - content   內容
   - link      連結
+  - type      作品類型
   - imgId     圖片ID
   - orderNum  排序
   - sh        顯示(1或0) 

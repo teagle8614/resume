@@ -38,7 +38,7 @@
           $row['sh']=($_POST['sh']==$id)?1:0;
           $page="autobiography";
           break;
-        case 'resume_jobCondition':
+        case 'resume_jobcondition':
         // 求職條件管理
           $row['item']=$_POST['item'][$key];
           $row['content']=$_POST['content'][$key];
@@ -78,6 +78,7 @@
           $row['item']=$_POST['item'][$key];
           $row['content']=$_POST['content'][$key];
           $row['link']=$_POST['link'][$key];
+          $row['type']=$_POST['type'][$key];
           $row['imgId']=$_POST['imgId'][$key];
           $row['orderNum']=$_POST['orderNum'][$key];
           $row['sh']=(!empty($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
@@ -90,7 +91,6 @@
           break;  
         default: 
       }
-
       $res=$db->save($row);
     }
   }

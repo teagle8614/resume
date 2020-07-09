@@ -11,7 +11,7 @@
       </thead>
       <tbody>
         <?php
-          $table="resume_myInfo";
+          $table="resume_myinfo";
           $db=new DB($table);
           $row=$db->find(1);
 

@@ -1,7 +1,7 @@
 // 點選導覽列按鈕，移動至該區域
 $('.nav-item').click(function () {
   $('html, body').animate({
-  scrollTop: $($.attr(this, 'href')).offset().top
+  scrollTop: $($.attr(this, 'href')).offset().top+20
   }, 500);
   return false;
 });
@@ -13,7 +13,7 @@ for(let i=0;i<$("section").length;i++){
     $("header .navbar-nav .nav-item").removeClass('active');
     $("header .navbar-nav .nav-item").eq(i).addClass('active');
   }, {
-    offset: '0'
+    offset: '80'
   });
 }
 
@@ -38,6 +38,7 @@ $('#btnDown').click(function () {
 });
 
 
+
 // 回頂部按鈕
 $('.btnBackUP').fadeOut(0);
 $(window).scroll(function() {
@@ -49,7 +50,10 @@ $(window).scroll(function() {
 });
 
 $('.btnBackUP').click(function() {
-  $('html,body').animate({scrollTop:0}, 1500);
+  $('html,body').animate({scrollTop:0}, 500);
+});
+$('.navbar-brand').click(function() {
+  $('html,body').animate({scrollTop:0}, 500);
 });
 
 
@@ -64,15 +68,34 @@ $('.skills-content').waypoint(function() {
 });
 
 
+// 作品集顯示特定種類作品
+function controlPost(btn){
+
+  if(btn==0){
+    // 全部
+    $("#portfolio .row>div").fadeIn(500);
+  }else{
+    // 其他項目
+    $('#portfolio .row>div').each(function() {
+      // console.log($(this).attr("data-portfolio"));
+      if($(this).attr("data-portfolio")!=btn){
+        $(this).fadeOut(500);
+      }else{
+        $(this).fadeIn(500);
+      }
+    });
+  }
+}
 
 
 
-
-$('#about').waypoint(function() {
-  $("#about").css("background-color", "transparent");
-}, {
-  offset: '50%'
-});
+// 更改footer的年份
+let time=new Date();
+if(time.getFullYear()=="2020"){
+  $("#footerTime").text("2020");
+}else{
+  $("#footerTime").text(`2020-${time.getFullYear()}`);
+}
 
 
 // WOW.js
