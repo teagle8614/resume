@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-07-08 18:37:54
+-- 產生時間： 2020-07-10 02:47:04
 -- 伺服器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.4.3
 
@@ -43,7 +43,8 @@ CREATE TABLE `resume_link` (
 
 INSERT INTO `resume_link` (`id`, `web`, `link`, `icon`, `orderNum`, `sh`) VALUES
 (1, '首頁', 'http://220.128.133.15/s1090204/', 'fas fa-home', 0, 1),
-(2, 'GitHub', 'https://github.com/teagle8614', 'fab fa-github', 0, 1);
+(2, 'GitHub', 'https://github.com/teagle8614', 'fab fa-github', 0, 1),
+(3, '信箱', 'mailto:sunnightperpetual@gmail.com', 'fas fa-envelope', 0, 1);
 
 --
 -- 已傾印資料表的索引
@@ -63,7 +64,7 @@ ALTER TABLE `resume_link`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_link`
 --
 ALTER TABLE `resume_link`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '流水號', AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '流水號', AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
