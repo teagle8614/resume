@@ -1,5 +1,6 @@
 <?php
 include_once "api/base.php";
+  $opacityCSS=0;
   // 判斷帳密是否有輸入
   if(!empty($_POST['acc']) && !empty($_POST['pw'])){
 
@@ -14,7 +15,7 @@ include_once "api/base.php";
       echo $acc;
       to("admin.php");
     }else{
-      echo "<script>alert('帳號或密碼錯誤')</script>";
+      $opacityCSS=1;
     }
   }
 
@@ -28,7 +29,9 @@ include_once "api/base.php";
   <title>登入</title>
   <link rel="stylesheet" href="css/login.css">
   <style>
-    
+    .tip{
+      opacity: <?=$opacityCSS;?>;
+    }
   </style>
 </head>
 <body>
@@ -46,7 +49,7 @@ include_once "api/base.php";
           <label for="pw">密碼:</label>
           <input type="password" name="pw" required>
         </div>
-
+        <p class="tip">帳號或密碼錯誤</p>
         <input type="submit" value="登入">
         <input type="reset" value="重置">
       </form>
