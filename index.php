@@ -162,25 +162,28 @@
         $Skill=new DB("resume_skill");
         $skillKinds=$Skill->all(["type"=>0,"sh"=>1]," order by  `orderNum` desc");
 
-
         foreach($skillKinds as $skillKind){
       ?>
-      <div class="col-lg-6 wow fadeInLeft">
+      <div class="col-12 col-lg-12 wow fadeInLeft">
         <div class="skills-content">
           <h4><?=$skillKind['skill'];?></h4>
+            <div class="row">
           <?php
             $skills=$Skill->all(["parent"=>$skillKind['id'],"sh"=>1]," order by  `orderNum` desc");
             foreach($skills as $skill){
           ?>
-            <div class="progressBox">
-              <p class="skillText"><?=$skill['skill'];?><span class="percent"><?=$skill['percent'];?>%</span></p>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" data-percent="<?=$skill['percent'];?>"></div>
+              <div class="col-12 col-lg-6">
+                <div class="progressBox">
+                  <p class="skillText"><?=$skill['skill'];?><span class="percent"><?=$skill['percent'];?>%</span></p>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" data-percent="<?=$skill['percent'];?>"></div>
+                  </div>
+                </div>
               </div>
-            </div>
           <?php
             }
           ?> 
+          </div>
         </div>
       </div>
       <?php
