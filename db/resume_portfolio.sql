@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-07-09 18:57:31
+-- 產生時間： 2020-07-13 06:20:27
 -- 伺服器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.4.3
 
@@ -50,9 +50,9 @@ INSERT INTO `resume_portfolio` (`id`, `item`, `content`, `link`, `type`, `imgId`
 (4, '數位時鐘', '主要使用技術: JavaScript、CSS', 'http://220.128.133.15/s1090204/hw/DigitalClock/', '程式', 5, 0, 1),
 (5, '類比時鐘', '主要使用技術: JavaScript、CSS\r\n', 'http://220.128.133.15/s1090204/hw/AnalogClock/', '程式', 6, 0, 1),
 (6, '二選一小遊戲', '主要使用技術: JavaScript、jQuery、CSS\r\n\r\n', 'http://220.128.133.15/s1090204/hw/storyGame/', '程式', 7, 0, 1),
-(7, '冰品DM', '主要使用技術: PS\r\n', 'http://220.128.133.15/s1090204/hw/portfolio/img/%E5%86%B0%E5%93%81DM.jpg', '平面設計', 9, 0, 1),
-(8, '年曆', '主要使用技術: PS\r\n', 'http://220.128.133.15/s1090204/hw/portfolio/img/%E5%B9%B4%E6%9B%86.jpg', '平面設計', 10, 0, 1),
-(9, 'logo設計', '主要使用技術: PS', 'http://220.128.133.15/s1090204/hw/portfolio/', '平面設計', 11, 0, 1);
+(7, '冰品DM', '主要使用技術: Photoshop\r\n', 'http://220.128.133.15/s1090204/hw/portfolio/img/%E5%86%B0%E5%93%81DM.jpg', '平面設計', 9, 0, 1),
+(8, '年曆', '主要使用技術: Photoshop\r\n', 'http://220.128.133.15/s1090204/hw/portfolio/img/%E5%B9%B4%E6%9B%86.jpg', '平面設計', 10, 0, 1),
+(9, 'logo設計', '主要使用技術: Illustrator', 'http://220.128.133.15/s1090204/hw/portfolio/', '平面設計', 11, 0, 1);
 
 --
 -- 已傾印資料表的索引
