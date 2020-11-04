@@ -76,6 +76,7 @@
         // 作品集管理
         case 'resume_portfolio':
           $row['item']=$_POST['item'][$key];
+          $row['skill']=$_POST['skill'][$key];
           $row['content']=$_POST['content'][$key];
           $row['link']=$_POST['link'][$key];
           $row['type']=$_POST['type'][$key];

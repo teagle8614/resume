@@ -7,6 +7,7 @@
         <tr>
           <th class="th_id">id</th>
           <th>項目</th>
+          <th>使用技術</th>
           <th style="width:30%">內容</th>
           <th>連結</th>
           <th>作品類型</th>
@@ -32,6 +33,7 @@
           <tr>
             <td><?=$row['id'];?></td>  
             <td><input type="text" name="item[]" value="<?=$row['item'];?>"></td>
+            <td><textarea style="width:100%;" name="skill[]" rows="5"><?=$row['skill'];?></textarea></td>
             <td><textarea style="width:100%;" name="content[]" rows="5"><?=$row['content'];?></textarea></td>
             <td><input type="text" name="link[]" value="<?=$row['link'];?>"></td>
             <td><input type="text" name="type[]" value="<?=$row['type'];?>"></td>

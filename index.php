@@ -35,7 +35,7 @@
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="#about">關於我</a>
           <a class="nav-item nav-link" href="#jobCondition">求職條件</a>
-          <a class="nav-item nav-link" href="#autobiography">自傳</a>
+          <!-- <a class="nav-item nav-link" href="#autobiography">自傳</a> -->
           <a class="nav-item nav-link" href="#skill">工作技能</a>
           <a class="nav-item nav-link" href="#experience">經歷</a>
           <a class="nav-item nav-link" href="#portfolio">作品集</a>
@@ -45,7 +45,7 @@
           <?php
             session_start();
             if(empty($_SESSION['login'])){
-              echo "<a id='login' class='nav-item nav-link' href='login.php'>登入</a>";
+              // echo "<a id='login' class='nav-item nav-link' href='myLogin.php'>登入</a>";
             }
             else{
               echo "<a class='nav-item nav-link' href='admin.php'>進入後台</a>";
@@ -69,7 +69,7 @@
       <div class="myLink text-center wow fadeInUp">
         <?php
           $Link=new DB("resume_link");
-          $links=$Link->all(["sh"=>1]," order by  `orderNum` desc");
+          $links=$Link->all(["sh"=>1]," order by  `orderNum` asc");
 
           foreach($links as $link){
         ?>
@@ -92,20 +92,13 @@
         <div>
           <table class="table wow fadeInUpBig">
             <tr>
-              <td>姓名</td>
-              <td><?=$myinfo['name'];?></td>
+              <td><?=$myinfo['name'];?> <?=$myinfo['engName'];?></td>
             </tr>
             <tr>
-              <td>英文姓名</td>
-              <td><?=$myinfo['engName'];?></td>
+              <td>現居<?=$myinfo['city'];?></td>
             </tr>
             <tr>
-              <td>信箱</td>
               <td><?=$myinfo['email'];?></td>
-            </tr>
-            <tr>
-              <td>居住縣市</td>
-              <td><?=$myinfo['city'];?></td>
             </tr>
           </table>
         </div>
@@ -124,7 +117,7 @@
       <tbody>
         <?php
           $Job=new DB("resume_jobcondition");
-          $jobs=$Job->all(["sh"=>1]," order by  `orderNum` desc");
+          $jobs=$Job->all(["sh"=>1]," order by  `orderNum` asc");
 
           foreach($jobs as $job){
         ?>
@@ -139,7 +132,7 @@
     </table>
   </section>
 
-  <hr>
+  <!-- <hr>
 
 
   <section id="autobiography" class="container">
@@ -151,7 +144,7 @@
         echo nl2br($autobio['content']);
       ?>
     </div>
-  </section>
+  </section> -->
 
   <hr>
 
@@ -160,7 +153,7 @@
     <div class="row">
       <?php
         $Skill=new DB("resume_skill");
-        $skillKinds=$Skill->all(["type"=>0,"sh"=>1]," order by  `orderNum` desc");
+        $skillKinds=$Skill->all(["type"=>0,"sh"=>1]," order by  `orderNum` asc,`id` asc");
 
         foreach($skillKinds as $skillKind){
       ?>
@@ -169,7 +162,7 @@
           <h4><?=$skillKind['skill'];?></h4>
             <div class="row">
           <?php
-            $skills=$Skill->all(["parent"=>$skillKind['id'],"sh"=>1]," order by  `orderNum` desc");
+            $skills=$Skill->all(["parent"=>$skillKind['id'],"sh"=>1]," order by  `orderNum` asc ,`id` asc");
             foreach($skills as $skill){
           ?>
               <div class="col-12 col-lg-6">
@@ -197,11 +190,11 @@
   <section id="experience" class="container">
     <h3 class="title wow fadeInLeft">經歷<span></span></h3>
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-12 mb-4">
         <div class="part wow fadeInUpBig"><span>學歷</span></div>
         <?php
           $Exper=new DB("resume_experience");
-          $expers=$Exper->all(["sh"=>1,"type"=>0]," order by  `orderNum` desc");
+          $expers=$Exper->all(["sh"=>1,"type"=>0]," order by  `orderNum` asc, `id` asc");
 
           foreach($expers as $exper){
         ?>
@@ -210,7 +203,6 @@
             <p class="experTitle"><?=$exper['item'];?></p>
             <p class="experTime"><?=$exper['time'];?></p>
             <div class="experContent"><?=nl2br($exper['content']);?></div>
-            
           </div>
         </div>
         <?php
@@ -218,10 +210,10 @@
         ?>
       </div>
 
-      <div class="col-lg-6">
+      <div class="col-12">
         <div class="part wow fadeInUpBig"><span>工作經歷</span></div>
         <?php
-          $expers=$Exper->all(["sh"=>1,"type"=>1]," order by  `orderNum` desc");
+          $expers=$Exper->all(["sh"=>1,"type"=>1]," order by  `orderNum` asc, `id` asc");
 
           foreach($expers as $exper){
         ?>
@@ -238,13 +230,14 @@
       </div>
     </div>
   </section>
+  
 
   <hr>
 
   <section id="portfolio" class="container">
     <?php
       $Port=new DB("resume_portfolio");
-      $ports=$Port->all(["sh"=>1]," order by `orderNum` desc");
+      $ports=$Port->all(["sh"=>1]," order by `orderNum` asc,`id` asc");
       
       $typeKinds=$Port->q("SELECT DISTINCT `type` FROM `resume_portfolio`");
     ?>
@@ -257,7 +250,9 @@
         }
       ?>
     </div>
-    <div class="row">
+
+
+    <!-- <div class="row">
       <?php
         foreach($ports as $port){
           // 利用id去找resume_img裡的圖片
@@ -277,7 +272,39 @@
       <?php
           }
       ?>
-    </div>
+    </div>   -->
+
+
+    <?php
+      foreach($ports as $port){
+        // 利用id去找resume_img裡的圖片
+        $imgLink=$Img->find($port['imgId']);
+    ?>
+      <div class="row wow fadeInUp" data-portfolio="<?=$port['type'];?>">
+        <div class="col-md-4 lBox">
+        <a href="<?=$port['link'];?>" target="_blank">
+          <div class="box" style="background-image: url(img/<?=$imgLink['img'];?>);">
+              <div class="innerBox">
+                <span class="material-icons">search</span>
+                <p class="tipPortfolio">前往瀏覽</p>
+              </div>
+          </div>
+        </a>
+        </div>
+
+        <div class="col-md-8 wow fadeInUp rBox">
+          <div class="boxInfo">
+              <div class="innerBox">
+                <p class="namePortfolio"><?=$port['item'];?></p>
+                <p class="skillPortfolio"><?=nl2br($port['skill']);?></p>
+                <p class="textPortfolio"><?=nl2br($port['content']);?></p>
+              </div>
+          </div>
+        </div>
+      </div>
+    <?php
+      }
+    ?>
   </section>
 
 

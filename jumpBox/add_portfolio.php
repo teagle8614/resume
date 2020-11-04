@@ -12,6 +12,10 @@
         <td><input type="text" name="item"></td>
       </tr>
       <tr>
+        <td>使用技術</td>
+        <td><textarea name="skill" rows="3"></textarea></td>
+      </tr>
+      <tr>
         <td>內容</td>
         <td><textarea name="content" rows="8"></textarea></td>
       </tr>

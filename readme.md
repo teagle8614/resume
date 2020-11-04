@@ -6,7 +6,6 @@
   * 數位時鐘: JavaScript、CSS
   * 類比時鐘: JavaScript、CSS
   * 1/2遊戲: JavaScript、jQuery、CSS
-  * 
 #### 平面設計
   * 冰品DM: Photoshop
   * 年曆: Photoshop
