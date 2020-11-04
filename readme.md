@@ -1,20 +1,5 @@
-## 作品集計畫
-#### 程式
-  * 小精靈: CSS
-  * 萬年曆: PHP、CSS
-  * 統一發票: PHP、CSS
-  * 數位時鐘: JavaScript、CSS
-  * 類比時鐘: JavaScript、CSS
-  * 1/2遊戲: JavaScript、jQuery、CSS
-#### 平面設計
-  * 冰品DM: Photoshop
-  * 年曆: Photoshop
-  * logo設計: Illustrator
-
-
 ## 視覺計畫
   * 採簡潔的風格，主要配色為白色與綠色
-
 
 ## 功能規劃
 1. 帳號管理
