@@ -73,7 +73,7 @@
 
           foreach($links as $link){
         ?>
-          <a href="<?=$link['link'];?>"><span class="<?=$link['icon'];?>"></span></a>
+          <a href="<?=$link['link'];?>" target="_blank"><span class="<?=$link['icon'];?>"></span></a>
         <?php
           }
         ?>  
@@ -298,6 +298,7 @@
                 <p class="namePortfolio"><?=$port['item'];?></p>
                 <p class="skillPortfolio"><?=nl2br($port['skill']);?></p>
                 <p class="textPortfolio"><?=nl2br($port['content']);?></p>
+                <a href="<?=$port['link'];?>" target="_blank" class="btnDemo"><span class="arrow">►</span> DEMO</a>
               </div>
           </div>
         </div>

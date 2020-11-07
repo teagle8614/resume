@@ -371,6 +371,9 @@ header .nav-item{
   overflow: hidden;
   transition-duration: 0.5s;
  }
+#portfolio .boxInfo .innerBox{
+  height: 100%;
+}
 
 #portfolio .boxInfo .namePortfolio{
   font-size: 1.8rem;
@@ -387,6 +390,31 @@ header .nav-item{
 @keyframes ani_portIcon{
   50%{
     top: -10px;
+  }
+}
+#portfolio .btnDemo{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #48c496;
+  font-weight: bold;
+  transition-duration: 0.5s;
+}
+#portfolio .btnDemo .arrow{
+  left: 0;
+  animation: ani_arrowR 1s linear 0s infinite;
+}
+#portfolio .btnDemo:hover
+{
+  color: #333;
+}
+
+@keyframes ani_arrowR{
+  50%{
+    left: 5px;
+  }
+  100%{
+    left: 0;
   }
 }
 
